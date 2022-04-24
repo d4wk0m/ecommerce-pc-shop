@@ -1,0 +1,84 @@
+:root{
+    --background: #F6F6F6;
+    --main: #111111;
+    --secondary: #6D6D6D;
+    --accent: #FFCB74;
+}
+
+.landing-wrapper{
+    width: 100vw;
+    min-height: 100vh;
+    background-color: var(--background);
+    padding: 0 10vw 0 10vw;
+    .header-wrapper{
+        border-bottom: var(--main) 1px solid;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 0.5vw;
+        .menuLeft{
+            display: flex;
+            flex-direction: row;
+            column-gap: 3vw;
+            height: 100%;
+            align-items: stretch;
+            .logo{
+                display: flex;
+                align-items: center;
+            }
+            .menu-items{
+                display: flex;
+                column-gap: 2vw;
+                .link-wrapper{
+                    display: flex;
+                    align-items: center;
+                    pointer-events: none;
+                    transition: 0.3s;
+                    height: 100%;
+                    .landinglink{
+                        pointer-events: all;
+                        text-decoration: none;
+                        color: var(--secondary);
+                        transition: 0.3s;
+                    }
+                    .landinglink:hover{
+                        text-decoration: none;
+                        color: var(--main);
+                        transform: scale(1.05);
+                    }
+                }
+
+                .active{
+                    -webkit-box-shadow: inset -0px -0.2vw 0px 0px var(--accent);
+                    -moz-box-shadow: inset -0px -0.2vw 0px 0px var(--accent);
+                    box-shadow: inset -0px -0.2vw 0px 0px var(--accent);
+                    .landinglink{
+                        transform: scale(1.05);
+                        cursor: default;
+                        pointer-events: none;
+                        color: var(--main);
+                    }
+                }
+            }
+        }
+        .menuRight{
+            display: flex;
+            row-gap: 2vw;
+            .button{
+                background-color: transparent;
+                border: none;
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+                width: 3.125vw;
+                height: 3.125vw;
+            }
+            .cart{
+                background-image: url('./assets/cart.svg');
+            }
+            .profile{
+                background-image: url('./assets/account.svg');
+            }
+        }
+    }
+}
