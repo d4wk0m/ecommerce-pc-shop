@@ -16,7 +16,7 @@ export default function DatabaseLogin() {
         }
         userAdd()
         navigate('/')
-    }, [])
+    })
     
     return (
         <>

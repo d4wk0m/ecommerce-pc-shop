@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { auth } from '../../firebase'
 import { GoogleAuthProvider, FacebookAuthProvider, GithubAuthProvider  } from "firebase/auth";
-import { useDatabase } from '../../products/context/DatabaseContext';
 
 const providerFacebook = new FacebookAuthProvider();
 const providerGoogle = new GoogleAuthProvider();
@@ -14,20 +13,16 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
-
     var [currentUser, setCurrentUser] = useState()
     const [loading, setLoading] = useState(true)
-
-    const { addUser } = useDatabase()
     
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
             setCurrentUser(user)
             setLoading(false)
         })
-
         return unsubscribe;
-    }, [loginGoogle])
+    }, [])
 
     const value = { 
         currentUser,
@@ -70,14 +65,12 @@ export function AuthProvider({ children }) {
         return auth.signInWithPopup(providerGoogle);
     }
 
-    async function loginFacebook(){
-        await auth.signInWithPopup(providerFacebook);
-        return await addUser(currentUser.uid, currentUser.email);
+    function loginFacebook(){
+        return auth.signInWithPopup(providerFacebook);
     }
 
-    async function loginGithub(){
-        await auth.signInWithPopup(providerGithub);
-        return await addUser(currentUser.uid, currentUser.email);
+    function loginGithub(){
+        return auth.signInWithPopup(providerGithub);
     }
 
     return (

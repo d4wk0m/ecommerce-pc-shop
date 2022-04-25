@@ -13,11 +13,13 @@ export default function ThemeToggle() {
     function initialTheme(){
         var root = document.querySelector(':root');
         if (cookies.get('theme') === 'light'){
-            root.style.setProperty('--background', "#FFFFFF")
+            root.style.setProperty('--background', "#F6F6F6")
+            root.style.setProperty('--main', '#111111')
             setToggle(false)
         }
         else if(cookies.get('theme') === 'dark'){
             root.style.setProperty('--background', "#111111")
+            root.style.setProperty('--main', '#F6F6F6')
             setToggle(true)
         }
     }
@@ -25,10 +27,13 @@ export default function ThemeToggle() {
         var root = document.querySelector(':root');
         if (cookies.get('theme') === 'light'){
             root.style.setProperty('--background', "#111111")
+            root.style.setProperty('--main', '#EBEBEB')
+            root.style.setProperty('--secondary', '#CCCCCC')
             cookies.set('theme', 'dark', {sameSite: 'lax'})
         }
         else{
-            root.style.setProperty('--background', "#FFFFFF")
+            root.style.setProperty('--background', "#F6F6F6")
+            root.style.setProperty('--main', '#111111')
             cookies.set('theme', 'light', {sameSite: 'lax'})
         }
         

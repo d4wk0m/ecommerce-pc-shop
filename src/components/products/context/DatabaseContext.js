@@ -1,6 +1,6 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext } from "react";
 import { db } from '../../firebase'
-import { collection, doc, setDoc, getDoc, updateDoc } from "firebase/firestore";
+import { doc, setDoc, getDoc, updateDoc } from "firebase/firestore";
 
 export const DatabaseContext = React.createContext()
 
@@ -9,8 +9,6 @@ export function useDatabase() {
 }
 
 export default function DatabaseProvider( { children } ) {
-    const usersRef = useRef(collection(db, 'users'))
-    console.log(usersRef)
     const value = {
         addUser,
         getUser,

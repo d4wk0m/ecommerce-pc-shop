@@ -25,6 +25,10 @@
             .logo{
                 display: flex;
                 align-items: center;
+                .logo-text{
+                    color: var(--main);
+                    
+                }
             }
             .menu-items{
                 display: flex;
@@ -63,7 +67,9 @@
         }
         .menuRight{
             display: flex;
-            row-gap: 2vw;
+            column-gap: 1vw;
+            width: max-content;
+            align-items: center;
             .button{
                 background-color: transparent;
                 border: none;

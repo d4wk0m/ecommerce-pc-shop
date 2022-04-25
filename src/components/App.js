@@ -19,7 +19,7 @@ function App() {
           <DatabaseProvider>
             <AuthProvider>
               <Routes>
-                <Route path="/" element={<LandingPage />} />
+                <Route path="*" element={<LandingPage />} />
                 <Route path="/loading" element={<DatabaseLogin />} />
                 <Route path="/dashboard" element={<PrivateRoute> <Dashboard /> </PrivateRoute>}/>
                 <Route path="/signup" element={<Signup />} />

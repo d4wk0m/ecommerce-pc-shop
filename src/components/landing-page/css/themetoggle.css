@@ -26,6 +26,7 @@
     background-color: var(--background);
     box-shadow: 0.2em 0.4em 1.5em var(--secondary);
     transition: background-color 250ms;
+    cursor: pointer;
 }
 
 .toggle-checkbox:checked ~ .toggle-slot {
